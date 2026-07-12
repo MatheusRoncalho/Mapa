@@ -1,4 +1,4 @@
-package com.cesumar.biblioteca.controller;
+package com.cesumar.biblioteca.controller.jsf;
 
 import com.cesumar.biblioteca.model.LivroDAO;
 import com.cesumar.biblioteca.model.Livro;

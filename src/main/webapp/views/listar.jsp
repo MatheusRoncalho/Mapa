@@ -152,7 +152,7 @@
     <header>
         <h1>📚 Biblioteca UniCesumar — Livros</h1>
         <nav>
-            <a href="${pageContext.request.contextPath}/index.jsp">🏠 Início</a>
+            <a href="${pageContext.request.contextPath}/views/index.jsp">🏠 Início</a>
             <a href="${pageContext.request.contextPath}/views/cadastrar.xhtml">➕ Cadastrar Livro</a>
         </nav>
     </header>
