@@ -41,13 +41,6 @@ public class LivroDAO {
         return livros.stream().anyMatch(livro -> livro.getIsbn().equals(isbn));
     }
 
-    public Livro buscarPorIsbn(String isbn) {
-        return livros.stream()
-                .filter(livro -> livro.getIsbn().equals(isbn))
-                .findFirst()
-                .orElse(null);
-    }
-
     private void adicionarLivroInicial(String titulo, String autor, int ano, String isbn) {
         Livro livro = new Livro(contadorId.getAndIncrement(), titulo, autor, ano, isbn);
         livros.add(livro);

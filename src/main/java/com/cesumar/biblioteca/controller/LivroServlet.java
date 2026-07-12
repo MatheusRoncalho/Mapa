@@ -11,20 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * GET  /livros → exibe listar.jsp com todos os livros
- * GET  /livros?acao=novo -> exibe o formulário vazio (cadastro.jsp)
- * POST /livros?acao=excluir → exclui livro por ID ou ISBN e redireciona
-
-
- *  *   POST /livros (acao=cadastrar)    -> valida e cadastra um novo livro
- */
 @WebServlet("/livros")
 public class LivroServlet extends HttpServlet {
 
     private final LivroDAO dao = LivroDAO.getInstancia();
-
-    // ─── GET: listar livros ────────────────────────────────────────────────────
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,8 +24,6 @@ public class LivroServlet extends HttpServlet {
         request.setAttribute("livros", livros);
         request.getRequestDispatcher("/views/listar.jsp").forward(request, response);
     }
-
-    // ─── POST: excluir livro ───────────────────────────────────────────────────
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -50,8 +38,6 @@ public class LivroServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/livros");
         }
     }
-
-    // ─── Exclusão por ID ou ISBN ───────────────────────────────────────────────
 
     private void processarExclusao(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
