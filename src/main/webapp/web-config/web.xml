@@ -7,7 +7,6 @@
 
     <display-name>Biblioteca UniCesumar</display-name>
 
-    <!-- FacesServlet: processa todas as requisições .xhtml -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -18,13 +17,11 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
-    <!-- Modo desenvolvimento: exibe erros detalhados nas páginas JSF -->
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
 
-    <!-- Trata string vazia como null nos campos JSF -->
     <context-param>
         <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
         <param-value>true</param-value>
@@ -33,14 +30,5 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-
-    <error-page>
-        <error-code>404</error-code>
-        <location>/views/erro404.jsp</location>
-    </error-page>
-    <error-page>
-        <error-code>500</error-code>
-        <location>/views/erro500.jsp</location>
-    </error-page>
 
 </web-app>

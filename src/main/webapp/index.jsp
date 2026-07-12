@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca UniCesumar</title>
     <style>
-        /* ── Reset e base ──────────────────────────────────────── */
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
@@ -18,7 +17,6 @@
             flex-direction: column;
         }
 
-        /* ── Cabeçalho ─────────────────────────────────────────── */
         header {
             background: #1a3a5c;
             color: white;
@@ -30,7 +28,6 @@
         header h1 { font-size: 1.6rem; }
         header p  { font-size: 0.9rem; opacity: 0.8; margin-top: 2px; }
 
-        /* ── Conteúdo principal ────────────────────────────────── */
         main {
             flex: 1;
             display: flex;
@@ -46,7 +43,6 @@
             justify-content: center;
         }
 
-        /* ── Cards de navegação ────────────────────────────────── */
         .card {
             background: white;
             border-radius: 12px;
@@ -67,7 +63,6 @@
         .card h2    { font-size: 1.1rem; color: #1a3a5c; margin-bottom: 8px; }
         .card p     { font-size: 0.85rem; color: #666; line-height: 1.5; }
 
-        /* ── Rodapé ────────────────────────────────────────────── */
         footer {
             background: #1a3a5c;
             color: rgba(255,255,255,0.7);
@@ -82,24 +77,22 @@
     <header>
         <div>
             <h1>📚 Biblioteca UniCesumar</h1>
-            <p>Sistema de Gerenciamento do Acervo</p>
+            <p>Sistema de Gerenciamento de livros</p>
         </div>
     </header>
 
     <main>
         <div class="card-container">
 
-            <!-- Card: Cadastrar Livro (JSF) -->
-            <a href="${pageContext.request.contextPath}/cadastrar.xhtml" class="card">
+            <a href="${pageContext.request.contextPath}/views/cadastrar.xhtml" class="card">
                 <div class="icone">➕</div>
                 <h2>Cadastrar Livro</h2>
-                <p>Adicione um novo livro ao acervo da biblioteca.</p>
+                <p>Adicione um novo livro para lista da biblioteca.</p>
             </a>
 
-            <!-- Card: Listar Livros (Servlet + JSP) -->
             <a href="${pageContext.request.contextPath}/livros" class="card">
                 <div class="icone">📋</div>
-                <h2>Listar Acervo</h2>
+                <h2>Listar Livros</h2>
                 <p>Visualize e gerencie todos os livros cadastrados.</p>
             </a>
 

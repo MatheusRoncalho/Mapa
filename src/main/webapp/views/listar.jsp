@@ -5,9 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acervo — Biblioteca UniCesumar</title>
+    <title>Livros — Biblioteca UniCesumar</title>
     <style>
-        /* ── Reset e base ──────────────────────────────────────── */
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
@@ -19,7 +18,6 @@
             flex-direction: column;
         }
 
-        /* ── Cabeçalho ─────────────────────────────────────────── */
         header {
             background: #1a3a5c;
             color: white;
@@ -37,10 +35,8 @@
         }
         header nav a:hover { color: white; text-decoration: underline; }
 
-        /* ── Conteúdo ──────────────────────────────────────────── */
         main { flex: 1; padding: 40px; max-width: 1100px; margin: 0 auto; width: 100%; }
 
-        /* ── Alertas ───────────────────────────────────────────── */
         .alerta {
             padding: 14px 20px;
             border-radius: 8px;
@@ -51,7 +47,6 @@
         .alerta-sucesso { background: #d4edda; color: #155724; border-left: 4px solid #28a745; }
         .alerta-erro    { background: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
 
-        /* ── Formulário de exclusão ─────────────────────────────── */
         .painel-excluir {
             background: white;
             border-radius: 10px;
@@ -92,7 +87,6 @@
         }
         .btn-excluir:hover { background: #b02a37; }
 
-        /* ── Tabela de livros ──────────────────────────────────── */
         .secao-titulo {
             font-size: 1.2rem;
             color: #1a3a5c;
@@ -143,7 +137,6 @@
             font-size: 1rem;
         }
 
-        /* ── Rodapé ────────────────────────────────────────────── */
         footer {
             background: #1a3a5c;
             color: rgba(255,255,255,0.7);
@@ -157,28 +150,25 @@
 <body>
 
     <header>
-        <h1>📚 Biblioteca UniCesumar — Acervo</h1>
+        <h1>📚 Biblioteca UniCesumar — Livros</h1>
         <nav>
             <a href="${pageContext.request.contextPath}/index.jsp">🏠 Início</a>
-            <a href="${pageContext.request.contextPath}/cadastrar.xhtml">➕ Cadastrar Livro</a>
+            <a href="${pageContext.request.contextPath}/views/cadastrar.xhtml">➕ Cadastrar Livro</a>
         </nav>
     </header>
 
     <main>
 
-        <%-- ── Mensagem de feedback (vem da sessão após redirect) ─────────── --%>
         <c:if test="${not empty sessionScope.mensagem}">
             <div class="alerta ${sessionScope.sucesso ? 'alerta-sucesso' : 'alerta-erro'}">
                 ${sessionScope.mensagem}
             </div>
-            <%-- Remove a mensagem da sessão após exibição (evita reexibição) --%>
             <c:remove var="mensagem" scope="session"/>
             <c:remove var="sucesso"  scope="session"/>
         </c:if>
 
-        <%-- ── Painel de exclusão ────────────────────────────────────────── --%>
         <div class="painel-excluir">
-            <h3>🗑️ Excluir Livro do Acervo</h3>
+            <h3>🗑️ Excluir Livro</h3>
             <form action="${pageContext.request.contextPath}/livros" method="post">
                 <input type="hidden" name="acao" value="excluir"/>
                 <div class="form-row">
@@ -197,7 +187,6 @@
             </form>
         </div>
 
-        <%-- ── Tabela de livros ──────────────────────────────────────────── --%>
         <p class="secao-titulo">
             Livros Cadastrados
             <span class="badge-total">${livros.size()}</span>
@@ -206,7 +195,6 @@
         <div class="tabela-wrapper">
             <c:choose>
 
-                <%-- Caso existam livros: exibe a tabela --%>
                 <c:when test="${not empty livros}">
                     <table>
                         <thead>
@@ -232,11 +220,10 @@
                     </table>
                 </c:when>
 
-                <%-- Caso o acervo esteja vazio --%>
                 <c:otherwise>
                     <div class="vazio">
                         📭 Nenhum livro cadastrado no acervo.<br/>
-                        <a href="${pageContext.request.contextPath}/cadastrar.xhtml">
+                        <a href="${pageContext.request.contextPath}/views/cadastrar.xhtml">
                             Clique aqui para adicionar o primeiro livro.
                         </a>
                     </div>

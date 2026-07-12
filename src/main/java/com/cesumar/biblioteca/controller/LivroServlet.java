@@ -1,6 +1,6 @@
 package com.cesumar.biblioteca.controller;
 
-import com.cesumar.biblioteca.dao.LivroDAO;
+import com.cesumar.biblioteca.model.LivroDAO;
 import com.cesumar.biblioteca.model.Livro;
 
 import javax.servlet.ServletException;
@@ -11,19 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Servlet responsável por controlar listagem e exclusão de livros.
- * Padrão MVC — camada Controller.
- *
- * GET  /livros              → exibe listar.jsp com todos os livros
- * POST /livros?acao=excluir → exclui livro por ID ou ISBN e redireciona
- */
 @WebServlet("/livros")
 public class LivroServlet extends HttpServlet {
 
     private final LivroDAO dao = LivroDAO.getInstancia();
-
-    // ─── GET: listar livros ────────────────────────────────────────────────────
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -33,8 +24,6 @@ public class LivroServlet extends HttpServlet {
         request.setAttribute("livros", livros);
         request.getRequestDispatcher("/views/listar.jsp").forward(request, response);
     }
-
-    // ─── POST: excluir livro ───────────────────────────────────────────────────
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -49,8 +38,6 @@ public class LivroServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/livros");
         }
     }
-
-    // ─── Exclusão por ID ou ISBN ───────────────────────────────────────────────
 
     private void processarExclusao(HttpServletRequest request, HttpServletResponse response)
             throws IOException {

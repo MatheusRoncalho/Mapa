@@ -12,7 +12,6 @@
     <name>Biblioteca Cesumar</name>
 
     <properties>
-        <!-- Java 11 evita problemas com module-info no Tomcat 7 -->
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,7 +19,6 @@
 
     <dependencies>
 
-        <!-- Servlet API 4.0 (javax.*) compatível com Tomcat 7 -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -67,7 +65,6 @@
                 </configuration>
             </plugin>
 
-            <!-- Tomcat 7 embutido: roda sem instalar nada -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
