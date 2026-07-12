@@ -84,7 +84,7 @@
     <main>
         <div class="card-container">
 
-            <a href="${pageContext.request.contextPath}/cadastrar.xhtml" class="card">
+            <a href="${pageContext.request.contextPath}/views/cadastrar.xhtml" class="card">
                 <div class="icone">➕</div>
                 <h2>Cadastrar Livro</h2>
                 <p>Adicione um novo livro para lista da biblioteca.</p>

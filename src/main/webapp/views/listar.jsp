@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acervo — Biblioteca UniCesumar</title>
+    <title>Livros — Biblioteca UniCesumar</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -153,7 +153,7 @@
         <h1>📚 Biblioteca UniCesumar — Livros</h1>
         <nav>
             <a href="${pageContext.request.contextPath}/index.jsp">🏠 Início</a>
-            <a href="${pageContext.request.contextPath}/cadastrar.xhtml">➕ Cadastrar Livro</a>
+            <a href="${pageContext.request.contextPath}/views/cadastrar.xhtml">➕ Cadastrar Livro</a>
         </nav>
     </header>
 
@@ -223,7 +223,7 @@
                 <c:otherwise>
                     <div class="vazio">
                         📭 Nenhum livro cadastrado no acervo.<br/>
-                        <a href="${pageContext.request.contextPath}/cadastrar.xhtml">
+                        <a href="${pageContext.request.contextPath}/views/cadastrar.xhtml">
                             Clique aqui para adicionar o primeiro livro.
                         </a>
                     </div>
